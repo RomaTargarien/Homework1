@@ -1,4 +1,4 @@
-package hometask1;
+package Hometask1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
