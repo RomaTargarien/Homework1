@@ -46,6 +46,8 @@ public class Task2n1 {
         
 
     }
+
+    // метод заполнения массива произвольной длины с клавиатуры
     public static void fillArray(ArrayList<Integer> arrayList) throws IOException {
         while (true){
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

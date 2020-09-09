@@ -5,25 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static Hometask2.Task2n1.fillArray;
+
 public class Task2n3 {
     public static void main(String[] args) throws IOException {
         ArrayList<Integer> arrayList = new ArrayList<>();
         System.out.println("Заполните массив числами. Если захотите завершить ввод, нажмите enter:");
+        fillArray(arrayList);
 
-        while (true){
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String string = reader.readLine();
-            if (string.equals("")){
-                break;
-            } else {
-                try {
-                    int j = Integer.parseInt(string);
-                    arrayList.add(j);
-                } catch (NumberFormatException e){
-                    System.out.println("Вы ввели не число и не enter. Повторите ввод:");
-                }
-            }
-        }
         System.out.print("Вывод массива через for: ");
         for (int i = arrayList.size(); i > 0; i--) {
             System.out.print(arrayList.get(i-1) + " ");
