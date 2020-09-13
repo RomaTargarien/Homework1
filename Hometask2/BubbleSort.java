@@ -1,9 +1,6 @@
 package Hometask2;
 
 public class BubbleSort {
-    public static void main(String[] args) {
-    }
-
     // метод пузырьковой сортировки
     public static void bubbleSort(int[] arraycopy){
         for (int i = arraycopy.length - 1; i >=1; i--){
