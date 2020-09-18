@@ -12,50 +12,50 @@ CalculatorWithCounter, и вызвать соответсвующий метод
 CalculatorWithOperator или у объекта CalculatorWithMathCopy или у объекта  CalculatorWithMathExtends
 (смотря что передали в конструктор) и увеличить значение внутреннего счётчика операций.*/
 
-public class CalculatorWithCounter {
-    private CalculatorWithMathCopy copy;
-    private CalculatorWithOperator operator;
-    private CalculatorWithMathExtends mathExtends;
-    private static double count = 0;
+public class CalculatorWithCounter implements ICalcCounter, IMemory{
 
-    public CalculatorWithCounter(CalculatorWithMathCopy copy){
-        this.copy = copy;
+    private final ICalc iCalc;
+    private int counter = 0;
+    private double memory = 0;
+
+    public CalculatorWithCounter(ICalc iCalc) {
+        this.iCalc = iCalc;
     }
-    public CalculatorWithCounter(CalculatorWithOperator operator){
-        this.operator = operator;
+    public double addition(double a, double b){
+        counter++;
+        memory = iCalc.addition(a,b);
+        return iCalc.addition(a,b);
     }
-    public CalculatorWithCounter(CalculatorWithMathExtends mathExtends){
-        this.mathExtends = mathExtends;
+    public double subtraction(double a, double b){
+        memory = iCalc.subtraction(a,b);
+        counter++;
+        return iCalc.subtraction(a,b);
+    }
+    public double multiplication(double a, double b){
+        memory = iCalc.multiplication(a,b);
+        counter++;return iCalc.multiplication(a,b);
+    }
+    public double division(double a, double b){
+        memory = iCalc.division(a,b);
+        counter++;return iCalc.division(a,b); }
+    public double degree(double a, int b){
+        memory = iCalc.degree(a,b);
+        counter++;return iCalc.degree(a,b);
+    }
+    public double modul(double a){
+        memory = iCalc.modul(a);
+        counter++;return iCalc.modul(a);
+    }
+    public double sqrt(double a) {
+        memory = iCalc.sqrt(a);
+        counter++;return iCalc.sqrt(a);
+    }
+    public int getCounter() {
+        return counter;
     }
 
-    public static void main(String[] args) {
-        CalculatorWithMathCopy mathCopy = new CalculatorWithMathCopy();
-        CalculatorWithCounter counter = new CalculatorWithCounter(mathCopy);
-
-    }
-    public double addition2(double a, double b){
-        return a + b;
-    }
-    public double subtraction2(double a, double b){
-        return a - b;
-    }
-    public double multiplication2(double a, double b){
-        return a*b;
-    }
-    public double division2(double a, double b){
-        return a/b;
-    }
-    public double degree2(double a, int b){
-        return Math.pow(a,b);
-    }
-    public double modul2(double a){
-        return Math.abs(a);
-    }
-    public double radical2(double a, double b){
-        return Math.pow(a,b);
-    }
-
-    public static double getCount() {
-        return count;
+    @Override
+    public double memory() {
+        return memory;
     }
 }

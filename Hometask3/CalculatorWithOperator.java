@@ -1,6 +1,6 @@
 package Hometask3;
 
-public class CalculatorWithOperator {
+public class CalculatorWithOperator implements ICalc{
     public double addition(double a, double b){
         return a + b;
     }
@@ -35,4 +35,5 @@ public class CalculatorWithOperator {
         if (a >= 0) return a;
         else return -a;
     }
+    public double sqrt(double a) { return Math.sqrt(a);}
 }
