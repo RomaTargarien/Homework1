@@ -19,7 +19,21 @@ public class MainContainer {
         dataContainer.sort(dataContainer);
         System.out.println(Arrays.toString(dataContainer.getItems()));
 
-        dataContainer.data = new Integer[]{null,1,3,null,null,5,null,9};
+        dataContainer.data = new Integer[]{null,1,3,null,null,null,5,null,9,null};
         System.out.println(dataContainer.toString());
+
+        DataContainer<String> dataContainer1 = new DataContainer<>();
+        dataContainer1.data = new String[]{"Рома", "Полина", "Никита"};
+        System.out.println(dataContainer1.add("Паша"));
+        System.out.println(dataContainer1.get(0));
+        System.out.println(Arrays.toString(dataContainer1.getItems()));
+        System.out.println(dataContainer1.deleteIndex(2));
+        System.out.println(Arrays.toString(dataContainer1.getItems()));
+        System.out.println(dataContainer1.deleteItem("Рома"));
+        System.out.println(Arrays.toString(dataContainer1.getItems()));
+        dataContainer1.sort(dataContainer1);
+        System.out.println(Arrays.toString(dataContainer1.getItems()));
+        dataContainer1.add(null);
+        System.out.println(dataContainer1.toString());
     }
 }

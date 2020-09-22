@@ -3,7 +3,7 @@ package Hometask4;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class DataContainer<T extends Integer> implements Comparator<T> {
+public class DataContainer<T> implements Comparator<T> {
     public T[] data;
 
     public int add(T item) {
@@ -74,20 +74,24 @@ public class DataContainer<T extends Integer> implements Comparator<T> {
     }
     @Override
     public int compare(T o1, T o2) {
-        return o1.intValue() - o2.intValue();
+        return o1.hashCode() - o2.hashCode();
     }
 
     @Override
     public String toString() {
         String result = "DataContainer{data=[";
         for (int i = 0; i < data.length; i++){
-            if (data[i] != null){
+            if (data[i] == null){
+                deleteIndex(i);
+                i--;
+            }
+        }
+        for (int i = 0; i < data.length; i++){
                 if (i == data.length - 1){
                     result += data[i];
                     break;
                 }
                result += data[i] + ",";
-            }
         }
         result += "]}";
         return result;
