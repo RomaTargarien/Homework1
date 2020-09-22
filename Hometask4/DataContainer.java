@@ -28,7 +28,7 @@ public class DataContainer<T> implements Comparator<T> {
         return data;
     }
 
-    boolean deleteIndex(int index){
+    boolean delete(int index){
         if (index <= data.length - 1 && index >= 0) {
             System.arraycopy(data, 0, data, 0, index);
             for (int i = index; i < data.length; i++){
@@ -43,7 +43,7 @@ public class DataContainer<T> implements Comparator<T> {
         return false;
     }
 
-    boolean deleteItem(T item) {
+    boolean delete(T item) {
         for (int j = 0; j < data.length; j++) {
             if (data[j] == item) {
                 System.arraycopy(data, 0, data, 0, j);
@@ -82,7 +82,7 @@ public class DataContainer<T> implements Comparator<T> {
         String result = "DataContainer{data=[";
         for (int i = 0; i < data.length; i++){
             if (data[i] == null){
-                deleteIndex(i);
+                delete(i);
                 i--;
             }
         }

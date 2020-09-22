@@ -10,10 +10,10 @@ public class MainContainer {
         System.out.println(dataContainer.get(0));
         System.out.println(Arrays.toString(dataContainer.getItems()));
 
-        System.out.println(dataContainer.deleteIndex(6));
+        System.out.println(dataContainer.delete(6));
         System.out.println(Arrays.toString(dataContainer.getItems()));
 
-        System.out.println(dataContainer.deleteItem(8));
+        System.out.println(dataContainer.delete(Integer.valueOf(8)));
         System.out.println(Arrays.toString(dataContainer.getItems()));
 
         dataContainer.sort(dataContainer);
@@ -27,9 +27,9 @@ public class MainContainer {
         System.out.println(dataContainer1.add("Паша"));
         System.out.println(dataContainer1.get(0));
         System.out.println(Arrays.toString(dataContainer1.getItems()));
-        System.out.println(dataContainer1.deleteIndex(2));
+        System.out.println(dataContainer1.delete(2));
         System.out.println(Arrays.toString(dataContainer1.getItems()));
-        System.out.println(dataContainer1.deleteItem("Рома"));
+        System.out.println(dataContainer1.delete("Рома"));
         System.out.println(Arrays.toString(dataContainer1.getItems()));
         dataContainer1.sort(dataContainer1);
         System.out.println(Arrays.toString(dataContainer1.getItems()));
