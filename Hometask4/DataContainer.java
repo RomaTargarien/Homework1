@@ -3,8 +3,12 @@ package Hometask4;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class DataContainer<T> implements Comparator<T> {
-    public T[] data;
+public class DataContainer<T>  {
+    private T[] data;
+
+    public DataContainer(T[] data){
+        this.data = data;
+    }
 
     public int add(T item) {
         //если есть значения null
@@ -63,8 +67,7 @@ public class DataContainer<T> implements Comparator<T> {
     void sort(Comparator<T> comparator){
         for (int i = data.length - 1; i >= 0 ; i--){
             for (int j = 0; j < i; j++){
-                int a = comparator.compare(data[j],data[j + 1]);
-                if (a > 0){
+                if (comparator.compare(data[j],data[j + 1]) > 0){
                     T copy = data[j];
                     data[j] = data[j+1];
                     data[j+1] = copy;
@@ -72,11 +75,22 @@ public class DataContainer<T> implements Comparator<T> {
             }
         }
     }
-    @Override
-    public int compare(T o1, T o2) {
-        return o1.hashCode() - o2.hashCode();
-    }
 
+
+    public static <V extends Comparable> void sort(DataContainer<V> container){
+        for (int i = container.data.length - 1; i >= 0 ; i--){
+            for (int j = 0; j < i; j++){
+                if (container.data[j].compareTo(container.data[j+1]) > 0){
+                    V copy = container.data[j];
+                    container.data[j] = container.data[j+1];
+                    container.data[j+1] = copy;
+                }
+            }
+        }
+    }
+    public static <V extends Comparable> void sort(DataContainer<V> container, Comparator<V> comparator){
+        container.sort(comparator);
+    }
     @Override
     public String toString() {
         String result = "DataContainer{data=[";
