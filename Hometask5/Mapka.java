@@ -1,4 +1,4 @@
-package Honetask5;
+package Hometask5;
 
 import java.util.*;
 

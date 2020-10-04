@@ -1,4 +1,4 @@
-package Honetask5;
+package Hometask5;
 
 public class RegExSearch implements ISearchEngine {
     @Override

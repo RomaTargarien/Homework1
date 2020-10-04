@@ -1,8 +1,4 @@
-package Honetask5;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+package Hometask5;
 
 public class EasySearch implements ISearchEngine {
     @Override

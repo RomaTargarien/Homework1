@@ -1,7 +1,6 @@
-package Honetask5;
+package Hometask5;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
