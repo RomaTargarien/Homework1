@@ -1,37 +1,35 @@
 package Hometask2;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.IOException;
+import static Hometask2.Task2n1.fillArray;
 
 public class Task2n2 {
-    public static void main(String[] args) {
-        System.out.println("Введите сколько чисел вы хотите ввести в массив:");
-        int number = 0;
-        while (true) {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                number = scanner.nextInt();
-                break;
-            } catch (InputMismatchException e) {
-                System.out.print("Неккоректный ввод. Повторите: ");
-            }
+    public static void main(String[] args) throws IOException {
+        System.out.println("Заполните массив числами.");
+        int[] array = fillArray();
+        if (array.length == 1){
+            System.out.println("Вывод невозможен, у вас только один элемент");
+            return;
         }
-        int[] array = new int[number];
-        System.out.println("Заполните массив числами");
-        for (int i = 0; i < array.length; i++) {
-            try {
-                Scanner scanner1 = new Scanner(System.in);
-                int j = scanner1.nextInt();
-                array[i] = j;
-            } catch (InputMismatchException e){
-                System.out.print("Неккоректный ввод. Повторите: ");
-                i--;
-            }
+        System.out.print("Вывод каждого второго элемента массива через for: ");
+        for (int i = 1; i < array.length; i = i + 2){
+            System.out.print(array[i] + " ");
         }
-        System.out.print("Каждый второй элемент массива: ");
-        for (int i = 1; i < array.length; i = i + 2) {
-                System.out.print(array[i]+ " ");
-        }
+        System.out.println();
 
+        System.out.print("Вывод каждого второго элемента массива через do while: ");
+        int i = 1;
+        do {
+            System.out.print(array[i] + " ");
+            i += 2;
+        } while (i < array.length);
+        System.out.println();
+
+        System.out.print("Вывод каждого второго элемента массива через while: ");
+        i = 1;
+        while (i < array.length){
+            System.out.print(array[i] + " ");
+            i += 2;
+        }
     }
 }

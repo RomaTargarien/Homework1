@@ -1,9 +1,9 @@
 package Hometask1;
 
-public class task4 {
+public class Task4 {
     public static void main(String[] args) {
-        boolean ICanSleep = sleepIn(false, true);
-        if (ICanSleep){
+        boolean iCanSleep = sleepIn(true, false);
+        if (iCanSleep){
             System.out.println("Можно спать");
         }
         else{
@@ -11,7 +11,6 @@ public class task4 {
         }
     }
     public static boolean sleepIn (boolean weekday, boolean vacation){
-        return !weekday;
+        return !weekday || vacation;
     }
-    //можно использовать и второй параметр - vacation, но эти два параметра являются взаимо исключающимися. Если weekday - true, значит vacation - false и наоборот. Поэтому использование второго параметра необязательно
 }

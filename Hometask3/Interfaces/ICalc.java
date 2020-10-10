@@ -1,4 +1,4 @@
-package Hometask3;
+package Hometask3.Interfaces;
 
 public interface ICalc {
     double addition(double a, double b);

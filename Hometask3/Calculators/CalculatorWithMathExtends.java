@@ -1,7 +1,7 @@
-package Hometask3;
+package Hometask3.Calculators;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator {
-    public double degre(double a, int b){
+    public double degree(double a, int b){
         return Math.pow(a,b);
     }
     public double modul(double a) { return Math.abs(a); }

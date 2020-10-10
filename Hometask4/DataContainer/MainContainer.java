@@ -1,4 +1,6 @@
-package Hometask4;
+package Hometask4.DataContainer;
+
+import Hometask4.DataContainer.DataContainer;
 
 import java.util.Arrays;
 
@@ -10,7 +12,7 @@ public class MainContainer {
         System.out.println(Arrays.toString(dataContainer.getItems()));
         System.out.println(dataContainer.delete(6));
         System.out.println(Arrays.toString(dataContainer.getItems()));
-        System.out.println(dataContainer.delete(Integer.valueOf(8)));
+        System.out.println(dataContainer.delete(Integer.valueOf(9)));
         System.out.println(Arrays.toString(dataContainer.getItems()));
 
         ComparatorInteger integer = new ComparatorInteger();
@@ -35,5 +37,9 @@ public class MainContainer {
         System.out.println(Arrays.toString(dataContainer1.getItems()));
         dataContainer1.add(null);
         System.out.println(dataContainer1.toString());
+
+        DataContainer<Integer> dataContainer2 = new DataContainer<>(new Integer[]{null,null,1,2,null,null,3});
+        System.out.println(dataContainer2.toString());
+
     }
 }

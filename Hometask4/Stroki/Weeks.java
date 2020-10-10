@@ -1,4 +1,4 @@
-package Hometask4;
+package Hometask4.Stroki;
 
 public class Weeks {
     public String toWeek(int day){

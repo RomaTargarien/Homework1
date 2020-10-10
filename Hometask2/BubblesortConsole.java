@@ -1,7 +1,6 @@
 package Hometask2;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import static Hometask2.Task2n1.*;
 import static Hometask2.BubbleSort.*;
 
@@ -34,16 +33,11 @@ public class BubblesortConsole {
         bubbleSort(array);
         printsort(array); //окончание рандома
 
-        ArrayList<Integer> array2 = new ArrayList<>(); //начало ввода с клавиатуры
-        System.out.println("Введите массив чисел, если захотите закончить ввод, нажмите enter:");
-        fillArray(array2);
-        int[] arraycopy = new int[array2.size()];
-        for (int i = 0; i < array2.size(); i++){
-            arraycopy[i] = array2.get(i);
-        }
-        print(arraycopy);
-        bubbleSort(arraycopy);
-        printsort(arraycopy); //окончание ввода с клавиатуры
+        System.out.println("Заполните массив:");
+        int[] arrayCreateByYourSelf = fillArray();//начало ввода с клавиатуры
+        print(arrayCreateByYourSelf);
+        bubbleSort(arrayCreateByYourSelf);
+        printsort(arrayCreateByYourSelf); //окончание ввода с клавиатуры
     }
 
     // метод заполнения рандомными числами

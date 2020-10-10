@@ -1,6 +1,6 @@
 package Hometask1;
 
-public class task1 {
+public class Task1 {
     public static void main(String[] args) {
         int x = 42;
         int y = 15;

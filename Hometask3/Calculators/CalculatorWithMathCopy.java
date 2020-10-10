@@ -1,4 +1,6 @@
-package Hometask3;
+package Hometask3.Calculators;
+
+import Hometask3.Interfaces.ICalc;
 
 public class CalculatorWithMathCopy implements ICalc {
     public double addition(double a, double b){

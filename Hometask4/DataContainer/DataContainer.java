@@ -1,4 +1,4 @@
-package Hometask4;
+package Hometask4.DataContainer;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -49,15 +49,8 @@ public class DataContainer<T>  {
 
     boolean delete(T item) {
         for (int j = 0; j < data.length; j++) {
-            if (data[j] == item) {
-                System.arraycopy(data, 0, data, 0, j);
-                for (int i = j; i < data.length; i++) {
-                    if (i == data.length - 1) {
-                        data = Arrays.copyOf(data, data.length - 1);
-                        break;
-                    }
-                    data[i] = data[i + 1];
-                }
+            if (data[j].equals(item)) {
+                delete(j);
                 return true;
             }
         }
@@ -76,7 +69,6 @@ public class DataContainer<T>  {
         }
     }
 
-
     public static <V extends Comparable> void sort(DataContainer<V> container){
         for (int i = container.data.length - 1; i >= 0 ; i--){
             for (int j = 0; j < i; j++){
@@ -91,23 +83,16 @@ public class DataContainer<T>  {
     public static <V extends Comparable> void sort(DataContainer<V> container, Comparator<V> comparator){
         container.sort(comparator);
     }
+
     @Override
     public String toString() {
-        String result = "DataContainer{data=[";
-        for (int i = 0; i < data.length; i++){
-            if (data[i] == null){
-                delete(i);
-                i--;
+        StringBuilder result = new StringBuilder("DataContainer{data=[");
+        for (T datum : data) {
+            if (datum != null) {
+                result.append(datum).append(",");
             }
         }
-        for (int i = 0; i < data.length; i++){
-                if (i == data.length - 1){
-                    result += data[i];
-                    break;
-                }
-               result += data[i] + ",";
-        }
-        result += "]}";
-        return result;
+        result = new StringBuilder(result.substring(0, result.length() - 1)).append("]}");
+        return result.toString();
     }
 }

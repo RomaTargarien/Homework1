@@ -1,6 +1,6 @@
-package Hometask4;
+package Hometask4.Stroki;
 
-public class Stroki1 {
+public class Number {
 
     public String toString(String number) {
         String numberStroka = "";

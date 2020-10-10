@@ -1,5 +1,7 @@
 package Hometask3;
 
+import Hometask3.Interfaces.ICalc;
+
 public class Chemist <T extends ICalc> {
     private T icalc;
 

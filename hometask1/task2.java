@@ -1,6 +1,6 @@
 package Hometask1;
 
-public class task2 {
+public class Task2 {
     public static void main(String[] args) {
         int a1 = 5 + 2/8; // 2/8 = 0.25, но т.к. записано в переменную типа int резульатом деления будет 0, 5 + 0 = 5;
         System.out.println(a1);

@@ -1,67 +1,73 @@
 package Hometask2;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+
 
 
 public class Task2n1 {
     public static void main(String[] args) throws IOException {
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        System.out.println("Заполните массив числами. Если захотите завершить ввод, нажмите enter:");
-        fillArray(arrayList);
-
+        System.out.println("Заполните массив числами.");
+        int[] array = fillArray();
         System.out.print("Вывод массива через for: ");
-        for (int i = 0; i < arrayList.size() ; i++) {
-            System.out.print(arrayList.get(i) + " ");
+        for (int i = 0; i < array.length; i++){
+            System.out.print(array[i] + " ");
         }
-
-        System.out.println("");
+        System.out.println();
 
         System.out.print("Вывод массива через for each: ");
-        for (int i : arrayList) {
-            System.out.print(i + " ");
+        for (int value : array) {
+            System.out.print(value + " ");
         }
-
-        System.out.println("");
-
-        int i = 0;
-        System.out.print("Вывод массива через while: ");
-        while (i <= (arrayList.size() - 1)){
-            System.out.print(arrayList.get(i) + " ");
-            i++;
-        }
-        i = 0;
-
-        System.out.println("");
+        System.out.println();
 
         System.out.print("Вывод массива через do while: ");
+        int i = 0;
         do {
-            System.out.print(arrayList.get(i) + " ");
+            System.out.print(array[i] + " ");
             i++;
-        } while (i <= arrayList.size() - 1);
-        
+        } while (i < array.length);
+        System.out.println();
 
+        System.out.print("Вывод массива через while: ");
+        i = 0;
+        while (i < array.length){
+            System.out.print(array[i] + " ");
+            i++;
+        }
     }
 
     // метод заполнения массива произвольной длины с клавиатуры
-    public static void fillArray(ArrayList<Integer> arrayList) throws IOException {
-        while (true){
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String string = reader.readLine();
-            if (string.equals("")){
-                break;
-            } else {
-                try {
-                    int j = Integer.parseInt(string);
-                    arrayList.add(j);
-                } catch (NumberFormatException e){
-                    System.out.println("Вы ввели не число и не enter. Повторите ввод:");
+    public static int[] fillArray() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Введите сколько хотите ввести элементов в массив");
+        int lenght;
+        while (true) {
+            try {
+                lenght = Integer.parseInt(reader.readLine());
+                if (lenght <= 0) {
+                    throw new ArrayIndexOutOfBoundsException();
                 }
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Вы ввели неккоректную длину");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Длина не может быть отрицательной или равна нулю");
             }
         }
+        System.out.println("Заполните массив числами:");
+        int[] array = new int[lenght];
+        for (int i = 0; i < array.length; i++){
+            try {
+                array[i] = Integer.parseInt(reader.readLine());
+            } catch (NumberFormatException e){
+                System.out.println("Неправда, это не число");
+                i--;
+            }
+        }
+        return array;
     }
 }

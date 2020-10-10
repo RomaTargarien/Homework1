@@ -1,6 +1,8 @@
-package Hometask3;
+package Hometask3.Calculators;
 
-public class CalculatorWithOperator implements ICalc{
+import Hometask3.Interfaces.ICalc;
+
+public class CalculatorWithOperator implements ICalc {
     public double addition(double a, double b){
         return a + b;
     }
@@ -17,7 +19,6 @@ public class CalculatorWithOperator implements ICalc{
         if (b == 0){
             return 1;
         }
-
         double c = a;
         if (b < 0){
             for (int i = 1; i < -b; i++) {
@@ -35,5 +36,7 @@ public class CalculatorWithOperator implements ICalc{
         if (a >= 0) return a;
         else return -a;
     }
-    public double sqrt(double a) { return Math.sqrt(a);}
+    public double sqrt(double a) {
+        return Math.sqrt(a);
+    }
 }

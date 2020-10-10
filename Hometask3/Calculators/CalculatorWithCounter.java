@@ -1,4 +1,4 @@
-package Hometask3;
+package Hometask3.Calculators;
 /*Создать класс CalculatorWithCounter, все методы в данном классе НЕ статические.
 У данного класса должно быть три конструктора (или один если сможете, это ещё не изучено
 https://refactoring.guru/ru/design-patterns/decorator)
@@ -12,50 +12,50 @@ CalculatorWithCounter, и вызвать соответсвующий метод
 CalculatorWithOperator или у объекта CalculatorWithMathCopy или у объекта  CalculatorWithMathExtends
 (смотря что передали в конструктор) и увеличить значение внутреннего счётчика операций.*/
 
-public class CalculatorWithCounter implements ICalcCounter, IMemory{
+import Hometask3.Interfaces.ICalc;
+import Hometask3.Interfaces.ICalcCounter;
+
+public class CalculatorWithCounter implements ICalc, ICalcCounter {
 
     private final ICalc iCalc;
     private int counter = 0;
-    private double memory = 0;
 
-    public CalculatorWithCounter(ICalc iCalc) {
+    public CalculatorWithCounter(CalculatorWithOperator iCalc) {
+        this.iCalc = iCalc;
+    }
+    public CalculatorWithCounter(CalculatorWithMathCopy iCalc) {
+        this.iCalc = iCalc;
+    }
+    public CalculatorWithCounter(CalculatorWithMathExtends iCalc) {
         this.iCalc = iCalc;
     }
     public double addition(double a, double b){
         counter++;
-        memory = iCalc.addition(a,b);
         return iCalc.addition(a,b);
     }
     public double subtraction(double a, double b){
-        memory = iCalc.subtraction(a,b);
         counter++;
         return iCalc.subtraction(a,b);
     }
     public double multiplication(double a, double b){
-        memory = iCalc.multiplication(a,b);
-        counter++;return iCalc.multiplication(a,b);
+        counter++;
+        return iCalc.multiplication(a,b);
     }
     public double division(double a, double b){
-        memory = iCalc.division(a,b);
-        counter++;return iCalc.division(a,b); }
+        counter++;
+        return iCalc.division(a,b); }
     public double degree(double a, int b){
-        memory = iCalc.degree(a,b);
-        counter++;return iCalc.degree(a,b);
+        counter++;
+        return iCalc.degree(a,b);
     }
     public double modul(double a){
-        memory = iCalc.modul(a);
         counter++;return iCalc.modul(a);
     }
     public double sqrt(double a) {
-        memory = iCalc.sqrt(a);
-        counter++;return iCalc.sqrt(a);
+        counter++;
+        return iCalc.sqrt(a);
     }
     public int getCounter() {
         return counter;
-    }
-
-    @Override
-    public double memory() {
-        return memory;
     }
 }

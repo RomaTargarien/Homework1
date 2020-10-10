@@ -4,11 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class task6n2 {
+public class Task6n2 {
     public static void main(String[] args) throws IOException {
         System.out.print("Введите семизначный номер телефона: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String telephone = reader.readLine();
             double number = Integer.parseInt(telephone)/Math.pow(10,7);
             if (number < 1 && number > 0.1) {
@@ -22,8 +22,8 @@ public class task6n2 {
     public static String createnumber(String telephone2) throws IOException {
         String code = "+375";
         System.out.print("Скажите какой у вас оператор: A1 или МТС: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String operator = reader.readLine();
             if (operator.toLowerCase().equals("а1")) {
                 code += "(44)";
