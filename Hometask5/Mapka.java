@@ -3,6 +3,7 @@ package Hometask5;
 import java.util.*;
 
 public class Mapka {
+
     public Map<String, Integer> go(String[] text, int num){
         Map<String, Integer> map = new HashMap<>();
         Set<String> warSet = new TreeSet<>(Arrays.asList(text));
