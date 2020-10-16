@@ -1,5 +1,8 @@
 package Hometask6;
 
+import Hometask6.ComparatorsAnimal.AnimalComparator;
+import Hometask6.ComparatorsPerson.PersonComparator;
+
 import java.util.*;
 
 public class Main {

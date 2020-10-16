@@ -1,4 +1,6 @@
-package Hometask6;
+package Hometask6.ComparatorsPerson;
+
+import Hometask6.Person;
 
 import java.util.Comparator;
 

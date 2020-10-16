@@ -76,8 +76,7 @@ public class Main {
     }
 
     public static String[] returnArray() throws IOException {
-        return (returnText2()).replaceAll("[,.!?\"()1234567" +
-                "890=+\\-qwertyuiopasdfghjklzxcvbnm'>^]", "").split("\\p{P}?[ \\t\\n\\r]+");
+        return (returnText2()).replaceAll("[,.!?\"()[0-9]=+\\-[a-zA-Z]'>^]", "").split("\\p{P}?[ \\t\\n\\r]+");
     }
 }
 //метод search должен возвращать result
