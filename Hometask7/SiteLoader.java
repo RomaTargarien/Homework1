@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 
 /* Реализация загрузчика сайтов
 */
@@ -66,10 +67,12 @@ public abstract class SiteLoader {
         if(error){
             throw new RuntimeException("Не получилось загрузить курсы валют");
         }
-        return handle(content.toString(), currencyName);
+        return handle(content.toString(),currencyName);
     }
 
-    public abstract double load(SiteLoader.Currency currencyName);
+    public abstract double load(Currency currencyName);
+
+    public abstract Map<String, Double> loadDate(Currency currencyName, String[] args);
 
     /**
      * Метод который будет дёрнут после успешной загрузки сайта
@@ -77,5 +80,5 @@ public abstract class SiteLoader {
      * @param currencyName валюта которую мы ищем
      * @return курс который мы нашли
      */
-    protected abstract double handle(String content, SiteLoader.Currency currencyName);
+    protected abstract double handle(String content, Currency currencyName);
 }

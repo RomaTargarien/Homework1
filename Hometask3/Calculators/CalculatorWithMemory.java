@@ -6,36 +6,38 @@ import Hometask3.Interfaces.IMemory;
 public class CalculatorWithMemory implements ICalc, IMemory {
     private final ICalc iCalc;
     private double memory = 0;
+    private double v = 0;
 
     public CalculatorWithMemory(ICalc iCalc) {
         this.iCalc = iCalc;
     }
     public double addition(double a, double b){
-        memory = iCalc.addition(a,b);
-        return iCalc.addition(a,b);
+        v = iCalc.addition(a,b);
+        return v;
     }
     public double subtraction(double a, double b){
-        memory = iCalc.subtraction(a,b);
-        return iCalc.subtraction(a,b);
+        v = iCalc.subtraction(a,b);
+        return v;
     }
     public double multiplication(double a, double b){
-        memory = iCalc.multiplication(a,b);
-        return iCalc.multiplication(a,b);
+        v = iCalc.multiplication(a,b);
+        return v;
     }
     public double division(double a, double b){
-        memory = iCalc.division(a,b);
-        return iCalc.division(a,b); }
+        v = iCalc.division(a,b);
+        return v;
+    }
     public double degree(double a, int b){
-        memory = iCalc.degree(a,b);
-        return iCalc.degree(a,b);
+        v = iCalc.degree(a,b);
+        return v;
     }
     public double modul(double a){
-        memory = iCalc.modul(a);
-        return iCalc.modul(a);
+        v = iCalc.modul(a);
+        return v;
     }
     public double sqrt(double a) {
-        memory = iCalc.sqrt(a);
-        return iCalc.sqrt(a);
+        v = iCalc.sqrt(a);
+        return v;
     }
 
     @Override
@@ -43,6 +45,6 @@ public class CalculatorWithMemory implements ICalc, IMemory {
         return memory;
     }
     public void setMemory(){
-        this.memory = memory;
+        this.memory = v;
     }
 }

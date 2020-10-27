@@ -12,6 +12,7 @@ public class CalculatorWithMemoryMain {
         calculatorWithMemory.setMemory();
         calculatorWithMemory.addition(calculatorWithMemory.getMemory(),calculatorWithMemory.multiplication(15,7));
         calculatorWithMemory.setMemory();
+        calculatorWithMemory.addition(12,5);
         System.out.println(calculatorWithMemory.addition(4.1,calculatorWithMemory.getMemory()));
 
 
