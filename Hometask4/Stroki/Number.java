@@ -2,31 +2,27 @@ package Hometask4.Stroki;
 
 public class Number {
 
-    public String toString(String number) {
+    public String toString(Double number) {
         String numberStroka = "";
-        try {
-            int num = Integer.parseInt(number);
-            if (num == 0) {
-                return "ноль";
+        String all = String.valueOf(number);
+        if (number == 0) {
+            return "ноль";
+        }
+        if (number < 0) {
+            numberStroka = "минус " + return1till10(-(int)(number/1));
+            if (all.contains(".") && (-number +(int) (number/1)) != 0){
+                double num2  = -number*100;
+                int number2int = ((int) num2/100)*100 ;
+                int num = (int)((num2  - number2int));
+                numberStroka += " целых " + sotaya(num);
             }
-            if (num < 0) {
-                numberStroka = "минус " + return1till10(-num);
-            } else {
-                numberStroka = return1till10(num);
-            }
-            return numberStroka;
-        } catch (Exception e){
-            double num2  = (Double.parseDouble(number))*100;
-            int number2int = ((int) num2/100)*100 ;
-            int num = (int)((num2  - number2int));
-            if (number2int/100 == 0){
-                return "ноль";
-            }
-            if (number2int/100 > 0){
-                numberStroka = return1till10(number2int/100) + " целых " + sotaya(num);
-            }
-            else {
-                numberStroka = "минус " + return1till10(-number2int/100) + " целых " + sotaya(-num);
+        } if (number > 0) {
+            numberStroka = return1till10((int)(number/1));
+            if (all.contains(".") && (number - (int) (number/1)) != 0){
+                double num2  = number*100;
+                int number2int = ((int) num2/100)*100 ;
+                int num = (int)((num2  - number2int));
+                numberStroka += " целых " + sotaya(num);
             }
         }
         return numberStroka;

@@ -2,6 +2,7 @@ package Hometask4.Stroki;
 
 public class Time {
 
+    @Deprecated
     public String toHoursMinuteSecondMillisecond(long millisecond, boolean shortFormat){
         String result = "";
         long mili = millisecond%1000;

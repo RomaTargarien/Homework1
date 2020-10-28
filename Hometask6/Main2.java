@@ -15,8 +15,9 @@ public class Main2 {
 
         List<Person> personArray = new ArrayList<>();
         long start = System.currentTimeMillis();
+        Factory factory = new Factory();
         for (int i = 0; i < a; i++){
-            personArray.add(new Factory().createPerson());
+            personArray.add(factory.createPerson());
         }
         long finish = System.currentTimeMillis();
 
