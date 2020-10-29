@@ -8,11 +8,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введите число от -999 999 999 до 999 999 999: " );
-        String num = reader.readLine();
-        System.out.println(new Number().toString(Double.parseDouble(num)));
+        try {
+            System.out.println(new Number().toString(Double.parseDouble(reader.readLine())));
+            System.out.print("Введите колличество прошедших дней: ");
+            System.out.println(new Weeks().toWeek(Integer.parseInt(reader.readLine())));
+        } catch (NumberFormatException e){
+            System.out.println("Вы ввели не число");
+        }
 
-        System.out.print("Введите колличество прошедших дней: ");
-        System.out.println(new Weeks().toWeek(Integer.parseInt(reader.readLine())));
 
         System.out.println(new Time().toHoursMinuteSecondMillisecond(632474,true));
         System.out.println(new Time().toHoursMinuteSecondMillisecond(5354555,false));

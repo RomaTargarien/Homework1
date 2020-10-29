@@ -1,36 +1,43 @@
 package Hometask4.Stroki;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Number {
 
     public String toString(Double number) {
         String numberStroka = "";
         String all = String.valueOf(number);
-        if (number == 0) {
-            return "ноль";
-        }
-        if (number < 0) {
-            numberStroka = "минус " + return1till10(-(int)(number/1));
-            if (all.contains(".") && (-number +(int) (number/1)) != 0){
-                double num2  = -number*100;
-                int number2int = ((int) num2/100)*100 ;
-                int num = (int)((num2  - number2int));
-                numberStroka += " целых " + sotaya(num);
+            if (number == 0) {
+                return "ноль";
             }
-        } if (number > 0) {
-            numberStroka = return1till10((int)(number/1));
-            if (all.contains(".") && (number - (int) (number/1)) != 0){
-                double num2  = number*100;
-                int number2int = ((int) num2/100)*100 ;
-                int num = (int)((num2  - number2int));
-                numberStroka += " целых " + sotaya(num);
+            if (number < 0) {
+                numberStroka = "минус " + return1till10(-(int)(number/1));
+                if (all.contains(".") && (-number +(int) (number/1)) != 0){
+                    double num2  = -number*100;
+                    int number2int = ((int) num2/100)*100 ;
+                    int num = (int)((num2  - number2int));
+                    numberStroka += " целых " + sotaya(num);
+                }
+            } if (number > 0) {
+                numberStroka = return1till10(number);
+                if (all.contains(".") && (number - (int) (number/1)) != 0){
+                    double num2  = number*100;
+                    int number2int = ((int) num2/100)*100 ;
+                    int num = (int)((num2  - number2int));
+                    numberStroka += " целых " + sotaya(num);
             }
         }
         return numberStroka;
     }
 
-    private String return1till10(int number) {
+    private String return1till10(double number) {
+        if (number == 0){
+            return "";
+        }
         if (number > 0 && number < 10) {
-            switch (number) {
+            switch ((int) number) {
                 case 1:
                     return "один";
                 case 2:
@@ -52,7 +59,7 @@ public class Number {
             }
         }
         if (number > 10 && number <= 19) {
-            switch (number) {
+            switch ((int) number) {
                 case 11:
                     return "одиннадцать";
                 case 12:
@@ -74,10 +81,10 @@ public class Number {
             }
         }
         if (number >= 10 && number <= 100 && number % 10 == 0) {
-            return returnDes(number);
+            return returnDes((int)number);
         }
         if (number >= 21 && number < 100) {
-            return returnDes(number - number % 10) + " " + return1till10(number % 10);
+            return returnDes((int)(number - number % 10)) + " " + return1till10(number % 10);
         }
         if (number >= 100 && number <= 900 && number % 100 == 0) {
             return returnSot(number);
@@ -92,16 +99,19 @@ public class Number {
             return returnThousand(number) + " " + return1till10(number % 1000);
         }
         if (number >= 10000 && number < 100000 && number % 10000 == 0){
-            return return1till10(number / 1000) + " тысяч";
+            return return1till10((int) (number / 1000)) + " тысяч";
         }
         if (number >= 10000 && number < 100000){
-            return returnTenThousands(number) + " " + return1till10(number % 1000);
+            return returnTenThousands(number-(number%1000)) + " " + return1till10(number % 1000);
+        }
+        if (number >= 100000 && number <= 999999 && (number - number%1000)%100000 == 0){
+            return return1till10((int)((number-number%1000)/1000)) + " тысяч " + return1till10(number%1000);
         }
         if (number >= 100000 && number <= 999999 && number % 1000 == 0){
-            return return1till10(number/1000) + " тысяч";
+            return return1till10((int)((number - number%100000)/1000)) + " " + return1till10(number%100000);
         }
         if (number > 100000 && number <= 999999){
-            return returnSotThousands(number) + " " + return1till10(number % 1000);
+            return return1till10(number-number%1000) + " " + return1till10(number % 1000);
         }
         if (number >= 1000000 && number <= 999999999 && number % 1000000 == 0){
             return returnMillion(number);
@@ -112,8 +122,8 @@ public class Number {
         return null;
     }
 
-    private String returnDes(int number) {
-        switch (number) {
+    private String returnDes(double number) {
+        switch ((int) number) {
             case 10:
                 return "десять";
             case 20:
@@ -138,8 +148,8 @@ public class Number {
         return null;
     }
 
-    private String returnSot(int number) {
-        switch (number) {
+    private String returnSot(double number) {
+        switch ((int) number) {
             case 100:
                 return "сто";
             case 200:
@@ -149,12 +159,12 @@ public class Number {
             case 400:
                 return "четыреста";
             default:
-                return return1till10(number / 100) + "сот";
+                return return1till10((int)(number / 100)) + "сот";
         }
     }
 
-    private String returnThousand(int number) {
-        switch (number / 1000) {
+    private String returnThousand(double number) {
+        switch ((int)number / 1000) {
             case 1:
                 return "одна тысяча";
             case 2:
@@ -164,11 +174,11 @@ public class Number {
             case 4:
                 return "четыре тысячи";
             default:
-                return return1till10(number / 1000) + " тысяч";
+                return return1till10((int)(number / 1000)) + " тысяч";
         }
     }
 
-    private String returnTenThousands(int number){
+    private String returnTenThousands(double number) {
         for (int i = 21; i <= 91; i = i + 10) {
             if (number / 1000 == i){
                 return return1till10(i - 1) + " одна тысяча ";
@@ -192,52 +202,53 @@ public class Number {
         return return1till10(number / 1000) + " тысяч";
     }
 
-    private String returnSotThousands(int number){
+
+    private String returnSotThousands(double number){
         for (int i = 101; i <= 991; i = i + 10) {
-            if (number / 1000 == i){
+            if ((int)(number / 1000) == i){
                 return return1till10(i - 1) + " одна тысяча ";
             }
         }
         for (int i = 102; i <= 992; i = i + 10) {
-            if (number / 1000 == i){
+            if ((int)(number / 1000) == i){
                 return return1till10(i - 2) + " две тысячи ";
             }
         }
         for (int i = 103; i <= 993; i = i + 10) {
-            if (number / 1000 == i){
+            if ((int)(number / 1000) == i){
                 return return1till10(i - 3) + " три тысячи ";
             }
         }
         for (int i = 104; i <= 994; i = i + 10) {
-            if (number / 1000 == i){
+            if ((int)(number / 1000) == i){
                 return return1till10(i - 4) + " четыре тысячи ";
             }
         }
-        return return1till10(number/1000 ) + " тысяч";
+        return return1till10((int)(number / 1000) ) + " тысяч";
     }
 
-    private String returnMillion(int number){
+    private String returnMillion(double number){
         for (int i = 2; i < 992; i = i + 10){
-            if (number / 1000000 == i) {
+            if ((int)(number / 1000000) == i) {
                 return return1till10(i) + " миллиона ";
             }
         }
         for (int i = 3; i < 993; i = i + 10){
-            if (number / 1000000 == i) {
+            if ((int)(number / 1000000) == i) {
                 return return1till10(i) + " миллиона ";
             }
         }
         for (int i = 4; i < 994; i = i + 10){
-            if (number / 1000000 == i) {
+            if ((int)(number / 1000000) == i) {
                 return return1till10(i) + " миллиона ";
             }
         }
         for (int i = 1; i < 991; i = i + 10){
-            if (number / 1000000 == i) {
+            if ((int)(number / 1000000) == i) {
                 return return1till10(i) + " миллион ";
             }
         }
-        return return1till10(number/1000000) + " миллионов ";
+        return return1till10((int)(number / 1000000)) + " миллионов ";
     }
 
     private String sotaya(int number){
