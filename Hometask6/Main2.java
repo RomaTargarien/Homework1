@@ -17,21 +17,21 @@ public class Main2 {
         long start = System.currentTimeMillis();
         Factory factory = new Factory();
         for (int i = 0; i < a; i++){
-            personArray.add(factory.createPerson());
+            personArray.add(Factory.createPerson());
         }
         long finish = System.currentTimeMillis();
 
         long start2 = System.currentTimeMillis();
         List<Person> personList = new LinkedList<>();
         for (int i = 0; i < a; i++){
-            personList.add(new Factory().createPerson());
+            personList.add(factory.createPerson());
         }
         long finish2 = System.currentTimeMillis();
 
         long start3 = System.currentTimeMillis();
         Set<Person> personSet = new HashSet<>();
         for (int i = 0; i < a; i++){
-            personSet.add(new Factory().createPerson());
+            personSet.add(factory.createPerson());
         }
         long finish3 = System.currentTimeMillis();
 
@@ -41,7 +41,7 @@ public class Main2 {
         long start4 = System.currentTimeMillis();
         Set<Person> personTree = new TreeSet<>(comparator);
         for (int i = 0; i < a; i++){
-            personTree.add(new Factory().createPerson());
+            personTree.add(factory.createPerson());
         }
         long finish4 = System.currentTimeMillis();
         System.out.println("Для заполнения с одновременной сортировкой Treeset понадобилось: " + (finish4 - start4));
