@@ -30,20 +30,20 @@ public class Main {
                 System.out.println(mapka.go(returnArray(),Integer.parseInt(reader1.readLine())));
                 break;
             case 3:
-                System.out.println("Введите слово которое хотите найти: ");
+                System.out.println("Введите слово, которое хотите найти: ");
                 ISearchEngine searcher = new EasySearch();
                 System.out.println(searcher.search(returnText2().toLowerCase(), reader1.readLine().toLowerCase()));
                 break;
             case 4:
-                System.out.println("Введите слово которое хотите найти: ");
+                System.out.println("Введите слово, которое хотите найти: ");
                 ISearchEngine searcher2 = new RegExSearch();
                 System.out.println(searcher2.search(returnText2().toLowerCase(),reader1.readLine().toLowerCase()));
                 break;
         }
         ISearchEngine iSearchEngine = new RegExSearch();
-        System.out.println("Слово \"война\" встрчеается " + iSearchEngine.search(returnText2().toLowerCase(),"война")+ " раза");
-        System.out.println("Слово \"и\" встрчеается " + iSearchEngine.search(returnText2().toLowerCase(),"и")+ " раз");
-        System.out.println("Слово \"мир\" встрчеается " + iSearchEngine.search(returnText2().toLowerCase(),"мир") + " раз");
+        System.out.println("Слово \"война\" встречается " + iSearchEngine.search(returnText2().toLowerCase(),"война")+ " раза");
+        System.out.println("Слово \"и\" встречается " + iSearchEngine.search(returnText2().toLowerCase(),"и")+ " раз");
+        System.out.println("Слово \"мир\" встречается " + iSearchEngine.search(returnText2().toLowerCase(),"мир") + " раз");
     }
     public static String returnText() throws IOException {
         String result = "";
